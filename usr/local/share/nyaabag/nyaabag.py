@@ -5,14 +5,19 @@ import re
 from fuzzywuzzy import fuzz,process
 import pandas as pd
 import io
+import itertools
+import os
 
 def get_nyaa_data(name,group):
+    global id
     name_eng = re.sub('\(.*?\)','', name)
     from nyaa import Nyaa
     Nyaa=Nyaa()
     searching = Nyaa.search(keyword=group+" "+name, category=1)
     for torrent in searching:
+        id += 1
         print("-----------------------------------------------------------")
+        print("Id: "+str(id))
         print("Title: "+str(torrent.name))
         print("Size: "+str(torrent.size))
         print("Date: "+str(torrent.date)+"\tSeeders: "+str(torrent.seeders))
@@ -21,6 +26,7 @@ def get_nyaa_data(name,group):
         print("Magnet Link: "+str(torrent.magnet))
         print("-----------------------------------------------------------")
         print()
+    return searching
 
 """
 Network url is commented because we are using a local copy of it
@@ -127,7 +133,8 @@ final_choice=int(input("Choose the season / release group name: "))
 final_choice-=1
 print('******************************************************')
 print("Fetching "+str(group[final_choice])+" release of "+str(anime_name_jap)+" / "+str(anime_name)+" from nyaa.")
-
-get_nyaa_data(anime_name,group[final_choice])
-get_nyaa_data(anime_name_jap,group[final_choice])
-input()
+id = 0
+searching = [get_nyaa_data(anime_name,group[final_choice]), get_nyaa_data(anime_name_jap,group[final_choice])]
+searching = list(itertools.chain(*searching))
+torrent = searching[int(input("Id to Torrent? ")) - 1]
+os.system("open \'" + torrent.magnet + "\'")
