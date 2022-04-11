@@ -4,4 +4,4 @@ python3 -m pip install lxml requests fuzzywuzzy pandas
 rm -rf /usr/local/share/nyaabag
 rm -rf /usr/local/bin/nyaabag
 cp -r usr/local/share/nyaabag /usr/local/share/nyaabag
-ln -s /usr/local/share/nyaabag.py /usr/local/bin/nyaabag
+ln -s /usr/local/share/nyaabag/nyaabag.py /usr/local/bin/nyaabag
