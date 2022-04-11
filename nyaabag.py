@@ -24,14 +24,14 @@ def get_nyaa_data(name,group):
 Network url is commented because we are using a local copy of it
 Uncomment the network url, and comment the local file name line, to use it.
 """
-sheet_url="index_seadex.csv"
-#sheet_url="https://docs.google.com/spreadsheets/d/1emW2Zsb0gEtEHiub_YHpazvBd4lL4saxCwyPhbtxXYM/edit#gid=0"
+#sheet_url="index_seadex.csv"
+sheet_url="https://docs.google.com/spreadsheets/d/1emW2Zsb0gEtEHiub_YHpazvBd4lL4saxCwyPhbtxXYM/edit#gid=0"
 
 #changing the google sheet link to get in csv format
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 #ignoring first line of the csv to use as headers
-best_release_data = pd.read_csv(url_1,header=1,index_col=[0])
+best_release_data = pd.read_csv(io.StringIO(requests.get(url_1).content.decode('utf-8')),header=1,index_col=[0])
 print("**WELCOME TO SEADEX TO NYAA FETCHER**")
 user_anime_name = input("Please enter the name of the anime you want to search: ")
 print('******************************************************')
