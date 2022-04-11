@@ -9,6 +9,8 @@ You can search in both, english and japanese name of the anime.
 ### Credits
 Credits to JuanjoSalvador's Nyaapy. A python wrapper for scraping nyaa, you can find it [here](https://github.com/JuanjoSalvador/NyaaPy)
 
+Credits to manintel's original nyaabag. It is the basis of my fork + expansion, it doesnt appear to be updated any more, but you can find it [here] (https://github.com/manintel/nyaabag)
+
 ## Python libraries used
 - Pandas  
 - fuzzywuzzy  
@@ -16,12 +18,12 @@ Credits to JuanjoSalvador's Nyaapy. A python wrapper for scraping nyaa, you can 
 - lxml  
 
 ## Usage
-Open up your terminal/cmd and navigate to the nyaabag directory.  
-Run this command first to ensure the installation of required libraries with your python.  
+If you don't have python3 installed, install [python3]: (https://www.python.org/).  
+Run the installer.  
 ```
-python -m pip install -r requirements.txt
+./installer
 ```  
-After that, just open a terminal/cmd window in the nyaabag directory, and run nyaabag.py file with python like this.  
+After that, just run the command nyaabag
 ```
-python nyaabag.py
+nyaabag
 ```  
