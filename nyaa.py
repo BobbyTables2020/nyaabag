@@ -7,7 +7,7 @@ class Nyaa:
 
     def __init__(self):
         self.SITE = utils.TorrentSite.NYAASI
-        self.URL = "https://nyaa.lol"
+        self.URL = "https://nyaa.si"
 
     def last_uploads(self, number_of_results):
         r = requests.get(self.URL)
