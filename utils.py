@@ -6,7 +6,7 @@ class TorrentSite(Enum):
     """
     Contains torrent sites
     """
-    NYAASI = "https://nyaa.lol"
+    NYAASI = "https://nyaa.si"
     SUKEBEINYAASI = "https://sukebei.nyaa.si"
 
     # * nyaa.pantsu.cat redirects to nyaa.net
