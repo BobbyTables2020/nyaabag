@@ -9,7 +9,7 @@ You can search in both, english and japanese name of the anime.
 ### Credits
 Credits to JuanjoSalvador's Nyaapy. A python wrapper for scraping nyaa, you can find it [here](https://github.com/JuanjoSalvador/NyaaPy)
 
-Credits to manintel's original nyaabag. It is the basis of my fork + expansion, it doesnt appear to be updated any more, but you can find it [here] (https://github.com/manintel/nyaabag)
+Credits to manintel's original nyaabag. It is the basis of my fork + expansion, it doesnt appear to be updated any more, but you can find it [here](https://github.com/manintel/nyaabag)
 
 ## Python libraries used
 - Pandas  
