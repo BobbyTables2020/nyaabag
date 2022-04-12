@@ -7,6 +7,26 @@ import pandas as pd
 import io
 import itertools
 import os
+import sys
+import subprocess
+
+# open_magnet snippet from https://stackoverflow.com/a/47526812
+
+def open_magnet(magnet):
+    """Open magnet according to os."""
+    if sys.platform.startswith('linux'):
+        subprocess.Popen(['xdg-open', magnet],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    elif sys.platform.startswith('win32'):
+        os.startfile(magnet)
+    elif sys.platform.startswith('cygwin'):
+        os.startfile(magnet)
+    elif sys.platform.startswith('darwin'):
+        subprocess.Popen(['open', magnet],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    else:
+        subprocess.Popen(['xdg-open', magnet],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 def get_nyaa_data(name,group):
     global id
@@ -137,4 +157,4 @@ id = 0
 searching = [get_nyaa_data(anime_name,group[final_choice]), get_nyaa_data(anime_name_jap,group[final_choice])]
 searching = list(itertools.chain(*searching))
 torrent = searching[int(input("Id to Torrent? ")) - 1]
-os.system("open \'" + torrent.magnet + "\'")
+open_magnet(torrent.magnet)
